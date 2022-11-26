@@ -23,18 +23,28 @@ const Cards = ({
     >
       <div className="flex flex-row justify-between">
         <h1 className="text-lg font-bold capitalize">{name}</h1>
-        <h1>
-          &#8377;{amount} /{" "}
-          <span className="text-lg font-bold">&#8377;{max}</span>
+        <h1 className="text-lg ">
+          {amount > max ? "Budget Exceeded" : "B-Tracker"}
         </h1>
       </div>
 
       <div className="relative pt-1">
-        <div className="overflow-hidden h-5 mb-4 text-xs flex rounded-full bg-blue-200">
+        <div className="overflow-hidden h-5 text-xs flex rounded-full bg-blue-200">
           <div
             style={{ width: `${width}%` }}
             className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500 ease-in duration-1000"
           ></div>
+        </div>
+      </div>
+
+      <div className="flex justify-between gap-4">
+        <div className="flex flex-col">
+          <p>Used Budget</p>
+          <p className="text-lg font-bold">&#8377; {amount}</p>
+        </div>
+        <div className="flex flex-col">
+          <p>Available Budget</p>
+          <p className="text-lg font-bold">&#8377; {max}</p>
         </div>
       </div>
 
