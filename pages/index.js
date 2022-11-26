@@ -46,6 +46,11 @@ export default function Home() {
             </button>
           </div>
         </main>
+        {budgets.length ? (
+          ""
+        ) : (
+          <p className="text-center mt-10 text-3xl">No Active Budgets...</p>
+        )}
         <div className="grid grid-flow-row-dense grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {budgets.map((budget) => {
             const amount = getBudgetExpense(budget.id).reduce(
