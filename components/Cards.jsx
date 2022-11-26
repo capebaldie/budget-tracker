@@ -22,9 +22,10 @@ const Cards = ({
       className={`flex flex-col p-6 gap-8 rounded-3xl ${bgColor} m-4 ease-in duration-1000`}
     >
       <div className="flex flex-row justify-between">
-        <h1 className="text-lg">{name}</h1>
+        <h1 className="text-lg font-bold capitalize">{name}</h1>
         <h1>
-          &#8377;{amount} / <span>&#8377;{max}</span>
+          &#8377;{amount} /{" "}
+          <span className="text-lg font-bold">&#8377;{max}</span>
         </h1>
       </div>
 

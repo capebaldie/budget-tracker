@@ -8,7 +8,7 @@ export const useBudget = () => {
   return useContext(BudgetContext);
 };
 
-const budget = { id: "", name: "", max: "" };
+//const budget = { id: "", name: "", max: "" };
 export const BudgetProvider = ({ children }) => {
   const [budgets, setBudgets] = useLocalStorage("budgets", []);
   const [expenses, setExpenses] = useLocalStorage("expenses", []);
@@ -31,11 +31,11 @@ export const BudgetProvider = ({ children }) => {
   }
 
   function deleteBudget({ id }) {
-    setBudgets(budgets.filter(budgets.id !== id));
+    setBudgets(budgets?.filter((budget) => budget.id !== id));
   }
 
   function deleteExpense({ id }) {
-    setExpenses(expenses.filter(expenses.id !== id));
+    setExpenses(expenses?.filter((expense) => expense.id !== id));
   }
 
   return (

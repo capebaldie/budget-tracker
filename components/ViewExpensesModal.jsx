@@ -21,45 +21,51 @@ const ViewExpensesModal = ({ budgetId, showViewModal, setShowViewModal }) => {
             <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
               {/*header*/}
               <div className="flex p-5 border-b border-solid border-slate-200 rounded-t">
-                <h3 className="text-3xl text-center font-semibold">
-                  My {budget?.name} Expenses
+                <h3 className="text-2xl text-center capitalize">
+                  {budget?.name} Expenses
                 </h3>
+              </div>
+              {expenses.map((expense) => {
+                return (
+                  <div
+                    key={expense.id}
+                    className="flex gap-x-10 justify-between items-center p-4 capitalize"
+                  >
+                    <p className=" capitalize">{expense.description}</p>
+                    <p className="">
+                      &#8377;{expense.amount}
+                      <span>
+                        <button
+                          onClick={() => {
+                            deleteExpense(expense);
+                          }}
+                          className="bg-red-100 border border-red-600 font-bold text-sm px-2 py-2 rounded shadow hover:shadow-lg ml-6 mr-1 mb-1"
+                        >
+                          delete
+                        </button>
+                      </span>
+                    </p>
+                  </div>
+                );
+              })}
+
+              <div className="flex items-center p-6 border-t border-solid border-slate-200">
+                <button
+                  type="button"
+                  className="text-red-500 background-transparent font-bold px-6 py-2 rounded text-sm mr-1 mb-1 hover:bg-red-500/10"
+                  onClick={() => setShowViewModal(false)}
+                >
+                  Close
+                </button>
                 <button
                   onClick={() => {
                     deleteBudget(budget);
                     setShowViewModal(false);
                   }}
                   type="button"
-                  className="bg-blue-600  text-white font-bold uppercase text-sm px-6 py-2 rounded shadow hover:shadow-lg mr-1 mb-1"
+                  className="bg-blue-600  text-white font-bold text-sm px-3 py-2 rounded shadow hover:shadow-lg mr-1 mb-1"
                 >
-                  Delete
-                </button>
-              </div>
-              {expenses.map((expense) => {
-                return (
-                  <div
-                    key={expense.id}
-                    className="flex gap-x-10 justify-between items-center p-4"
-                  >
-                    <p>{expense.description}</p>
-                    <p>{expense.amount}</p>
-                  </div>
-                );
-              })}
-
-              <div className="flex items-center p-6">
-                <button
-                  type="button"
-                  className="text-red-500 background-transparent font-bold uppercase px-6 py-2 rounded text-sm mr-1 mb-1 hover:bg-red-500/10"
-                  onClick={() => setShowViewModal(false)}
-                >
-                  Close
-                </button>
-                <button
-                  type="button"
-                  className="bg-blue-600  text-white font-bold uppercase text-sm px-6 py-2 rounded shadow hover:shadow-lg mr-1 mb-1"
-                >
-                  add
+                  Delete Budget
                 </button>
               </div>
             </div>

@@ -54,6 +54,7 @@ const ExpenseModal = ({
                 />
                 <select
                   className="m-3 p-3 text-lg border rounded-md border-gray-200 w-auto px-8"
+                  defaultValue={defaultBudgetId}
                   ref={budgetIdRef}
                   name="budgetdetails"
                   id=""
